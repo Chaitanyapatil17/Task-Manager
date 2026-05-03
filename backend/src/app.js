@@ -8,9 +8,16 @@ import dashboardRoutes from "./routes/dashboardRoutes.js";
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+// ✅ CORS FIX (important for production)
+app.use(cors({
+  origin: [
+    "http://localhost:5173", // local frontend
+    "https://your-vercel-app.vercel.app" // 🔥 replace with your real Vercel URL
+  ],
+  credentials: true
+}));
 
+app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
