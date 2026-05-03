@@ -8,30 +8,12 @@ import dashboardRoutes from "./routes/dashboardRoutes.js";
 
 const app = express();
 
-// ✅ PRODUCTION-READY CORS
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://task-manager-ivory-seven-33.vercel.app" // 🔥 your real Vercel URL
-];
-
+// 🔥 FORCE ALLOW EVERYTHING (for submission)
 app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps / curl)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    } else {
-      return callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
-
-// handle preflight
-app.options("*", cors());
 
 app.use(express.json());
 
