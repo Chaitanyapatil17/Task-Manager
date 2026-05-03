@@ -1,10 +1,10 @@
 Team Task Manager (Full-Stack)
 
 Live URL:
-https://your-vercel-url.vercel.app
+https://task-manager-ivory-seven-33.vercel.app/
 
 GitHub Repo:
-https://github.com/your-username/Task-Manager
+https://github.com/Chaitanyapatil17/Task-Manager
 
 Tech Stack:
 Frontend: React (Vite)
